@@ -21,7 +21,7 @@ class NasaError : public std::exception
                 std::string const &component = "Unknown") : _component(component), _message(message) {}
         virtual ~NasaError() = default;
         std::string const &getComponent() const;
-        const char* what() const;  
+        const char* what() const noexcept override;  
     private:
         std::string _message;
     protected:

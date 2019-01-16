@@ -12,7 +12,7 @@ NasaError::getComponent() const
         return this->_component;
 }
 
-const NasaError::what() const
+const char* NasaError::what() const noexcept
 {
-        return _message.c_str();
+        return this->_message.c_str();
 }
