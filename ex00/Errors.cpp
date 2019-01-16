@@ -7,3 +7,12 @@
 
 #include "Errors.hpp"
 
+NasaError::getComponent() const 
+{
+        return this->_component;
+}
+
+const NasaError::what() const
+{
+        return _message.c_str();
+}
