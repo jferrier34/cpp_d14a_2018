@@ -7,7 +7,7 @@
 
 #include "Errors.hpp"
 
-NasaError::getComponent() const 
+std::string const &NasaError::getComponent() const 
 {
         return this->_component;
 }
