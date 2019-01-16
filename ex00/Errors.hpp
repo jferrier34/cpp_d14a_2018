@@ -5,13 +5,15 @@
 ** ex00
 */
 
-
 #ifndef ERRORS_HPP_
 #define ERRORS_HPP_
 
 #include <string>
+#include <memory>
+#include <iostream>
+#include <fstream>
 
-class NasaError 
+class NasaError : public std::exception
 {
     public:
         NasaError(std::string const &message,
@@ -44,14 +46,14 @@ class UserError : public NasaError
 {
     public:
         UserError(std::string const &message,
-                std::string const &component = "Unknown");
+                std::string const &component = "Unknown") : NasaError(message, component) {}
                 ~UserError() = default;
 };
 
 class CommunicationError : public NasaError
 {
     public:
-        CommunicationError(std::string const &message) : NasaError(message, "CommunicationDevice")
+        CommunicationError(std::string const &message) : NasaError(message, "CommunicationDevice") {}
         ~CommunicationError() = default;
 };
 
