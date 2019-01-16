@@ -12,6 +12,7 @@
 #include <memory>
 #include <iostream>
 #include <fstream>
+#include <exception> 
 
 class NasaError : public std::exception
 {
